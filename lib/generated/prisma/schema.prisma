@@ -1,0 +1,28 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../lib/generated/prisma"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+  extensions = [uuid_ossp(map: "uuid-ossp", schema: "extensions")]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Library {
+  Book_ID          BigInt  @id @unique @default(autoincrement()) @map("Book ID")
+  Book_Title       String  @map("Book Title")
+  Author           String
+  Series           String?
+  Publisher        String?
+  ISBN_number      BigInt? @map("ISBN number")
+  Genre            String?
+  Language         String?
+  Year_Published   BigInt? @map("Year Published")
+  Total_Copies     BigInt? @map("Total Copies")
+  Available_Copies BigInt? @map("Available Copies")
+  Price____        Float?  @map("Price ($)")
+}
