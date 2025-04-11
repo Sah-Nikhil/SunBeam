@@ -32,6 +32,7 @@ export async function signup(formData: FormData) {
   // in practice, you should validate your inputs
   const data = {
     email: formData.get('email') as string,
+    name: formData.get('name') as string,
     password: formData.get('password') as string,
   }
 

@@ -6,7 +6,7 @@ import { login, signup } from "./actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 
@@ -131,19 +131,6 @@ export default function LoginPage() {
             </TabsContent>
           </Tabs>
         </CardContent>
-        {/* <CardFooter className="flex justify-center">
-          <p className="text-sm text-muted-foreground">
-            By continuing, you agree to our{" "}
-            <a href="/terms" className="text-primary hover:underline">
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a href="/privacy" className="text-primary hover:underline">
-              Privacy Policy
-            </a>
-            .
-          </p>
-        </CardFooter> */}
       </Card>
     </div>
   );
