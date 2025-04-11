@@ -2164,10 +2164,10 @@ export namespace Prisma {
 
   export type LibraryWhereUniqueInput = Prisma.AtLeast<{
     Book_ID?: bigint | number
+    Book_Title?: string
     AND?: LibraryWhereInput | LibraryWhereInput[]
     OR?: LibraryWhereInput[]
     NOT?: LibraryWhereInput | LibraryWhereInput[]
-    Book_Title?: StringFilter<"Library"> | string
     Author?: StringFilter<"Library"> | string
     Series?: StringNullableFilter<"Library"> | string | null
     Publisher?: StringNullableFilter<"Library"> | string | null
@@ -2178,7 +2178,7 @@ export namespace Prisma {
     Total_Copies?: BigIntNullableFilter<"Library"> | bigint | number | null
     Available_Copies?: BigIntNullableFilter<"Library"> | bigint | number | null
     Price____?: FloatNullableFilter<"Library"> | number | null
-  }, "Book_ID" | "Book_ID">
+  }, "Book_ID" | "Book_ID" | "Book_Title">
 
   export type LibraryOrderByWithAggregationInput = {
     Book_ID?: SortOrder
