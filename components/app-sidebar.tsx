@@ -4,26 +4,12 @@ import * as React from "react"
 
 import { useRouter } from 'next/navigation'
 
-import {
-  IconDashboard,
-  IconFolder,
-  IconInnerShadowTop,
-  IconListDetails,
-  IconSettings,
-} from "@tabler/icons-react"
+import { IconDashboard, IconFolder, IconInnerShadowTop, IconListDetails, IconSettings } from "@tabler/icons-react"
 
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 
 const data = {
     user: {
