@@ -1,3 +1,9 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
   output   = "../lib/generated/prisma"
@@ -9,18 +15,17 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model Library {
-  Book_ID          BigInt  @id @unique @default(autoincrement()) @map("Book ID")
+  Book_ID          Int     @id @unique @default(autoincrement()) @map("Book ID")
   Book_Title       String  @unique @map("Book Title")
-  Author           String
-  Series           String?
-  Publisher        String?
-  ISBN_number      BigInt? @map("ISBN number")
-  Genre            String?
-  Language         String?
-  Year_Published   BigInt? @map("Year Published")
-  Total_Copies     BigInt? @map("Total Copies")
-  Available_Copies BigInt? @map("Available Copies")
-  Price____        Float?  @map("Price ($)")
+  Author           String  @map("Author")
+  Series           String? @map("Series")
+  Publisher        String? @map("Publisher")
+  ISBN_number      BigInt? @unique @map("ISBN number")
+  Genre            String? @map("Genre")
+  Language         String? @map("Language")
+  Year_Published   Int?    @map("Year Published")
+  Total_Copies     Int     @map("Total Copies")
+  Available_Copies Int     @map("Available Copies")
+  Price            Float?  @map("Price (USD)")
 }

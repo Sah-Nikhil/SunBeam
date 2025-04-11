@@ -15,7 +15,7 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 /**
  * Model Library
- * This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+ * 
  */
 export type Library = $Result.DefaultSelection<Prisma.$LibraryPayload>
 
@@ -887,20 +887,20 @@ export namespace Prisma {
     Year_Published: number | null
     Total_Copies: number | null
     Available_Copies: number | null
-    Price____: number | null
+    Price: number | null
   }
 
   export type LibrarySumAggregateOutputType = {
-    Book_ID: bigint | null
+    Book_ID: number | null
     ISBN_number: bigint | null
-    Year_Published: bigint | null
-    Total_Copies: bigint | null
-    Available_Copies: bigint | null
-    Price____: number | null
+    Year_Published: number | null
+    Total_Copies: number | null
+    Available_Copies: number | null
+    Price: number | null
   }
 
   export type LibraryMinAggregateOutputType = {
-    Book_ID: bigint | null
+    Book_ID: number | null
     Book_Title: string | null
     Author: string | null
     Series: string | null
@@ -908,14 +908,14 @@ export namespace Prisma {
     ISBN_number: bigint | null
     Genre: string | null
     Language: string | null
-    Year_Published: bigint | null
-    Total_Copies: bigint | null
-    Available_Copies: bigint | null
-    Price____: number | null
+    Year_Published: number | null
+    Total_Copies: number | null
+    Available_Copies: number | null
+    Price: number | null
   }
 
   export type LibraryMaxAggregateOutputType = {
-    Book_ID: bigint | null
+    Book_ID: number | null
     Book_Title: string | null
     Author: string | null
     Series: string | null
@@ -923,10 +923,10 @@ export namespace Prisma {
     ISBN_number: bigint | null
     Genre: string | null
     Language: string | null
-    Year_Published: bigint | null
-    Total_Copies: bigint | null
-    Available_Copies: bigint | null
-    Price____: number | null
+    Year_Published: number | null
+    Total_Copies: number | null
+    Available_Copies: number | null
+    Price: number | null
   }
 
   export type LibraryCountAggregateOutputType = {
@@ -941,7 +941,7 @@ export namespace Prisma {
     Year_Published: number
     Total_Copies: number
     Available_Copies: number
-    Price____: number
+    Price: number
     _all: number
   }
 
@@ -952,7 +952,7 @@ export namespace Prisma {
     Year_Published?: true
     Total_Copies?: true
     Available_Copies?: true
-    Price____?: true
+    Price?: true
   }
 
   export type LibrarySumAggregateInputType = {
@@ -961,7 +961,7 @@ export namespace Prisma {
     Year_Published?: true
     Total_Copies?: true
     Available_Copies?: true
-    Price____?: true
+    Price?: true
   }
 
   export type LibraryMinAggregateInputType = {
@@ -976,7 +976,7 @@ export namespace Prisma {
     Year_Published?: true
     Total_Copies?: true
     Available_Copies?: true
-    Price____?: true
+    Price?: true
   }
 
   export type LibraryMaxAggregateInputType = {
@@ -991,7 +991,7 @@ export namespace Prisma {
     Year_Published?: true
     Total_Copies?: true
     Available_Copies?: true
-    Price____?: true
+    Price?: true
   }
 
   export type LibraryCountAggregateInputType = {
@@ -1006,7 +1006,7 @@ export namespace Prisma {
     Year_Published?: true
     Total_Copies?: true
     Available_Copies?: true
-    Price____?: true
+    Price?: true
     _all?: true
   }
 
@@ -1097,7 +1097,7 @@ export namespace Prisma {
   }
 
   export type LibraryGroupByOutputType = {
-    Book_ID: bigint
+    Book_ID: number
     Book_Title: string
     Author: string
     Series: string | null
@@ -1105,10 +1105,10 @@ export namespace Prisma {
     ISBN_number: bigint | null
     Genre: string | null
     Language: string | null
-    Year_Published: bigint | null
-    Total_Copies: bigint | null
-    Available_Copies: bigint | null
-    Price____: number | null
+    Year_Published: number | null
+    Total_Copies: number
+    Available_Copies: number
+    Price: number | null
     _count: LibraryCountAggregateOutputType | null
     _avg: LibraryAvgAggregateOutputType | null
     _sum: LibrarySumAggregateOutputType | null
@@ -1142,7 +1142,7 @@ export namespace Prisma {
     Year_Published?: boolean
     Total_Copies?: boolean
     Available_Copies?: boolean
-    Price____?: boolean
+    Price?: boolean
   }, ExtArgs["result"]["library"]>
 
   export type LibrarySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1157,7 +1157,7 @@ export namespace Prisma {
     Year_Published?: boolean
     Total_Copies?: boolean
     Available_Copies?: boolean
-    Price____?: boolean
+    Price?: boolean
   }, ExtArgs["result"]["library"]>
 
   export type LibrarySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1172,7 +1172,7 @@ export namespace Prisma {
     Year_Published?: boolean
     Total_Copies?: boolean
     Available_Copies?: boolean
-    Price____?: boolean
+    Price?: boolean
   }, ExtArgs["result"]["library"]>
 
   export type LibrarySelectScalar = {
@@ -1187,16 +1187,16 @@ export namespace Prisma {
     Year_Published?: boolean
     Total_Copies?: boolean
     Available_Copies?: boolean
-    Price____?: boolean
+    Price?: boolean
   }
 
-  export type LibraryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Book_ID" | "Book_Title" | "Author" | "Series" | "Publisher" | "ISBN_number" | "Genre" | "Language" | "Year_Published" | "Total_Copies" | "Available_Copies" | "Price____", ExtArgs["result"]["library"]>
+  export type LibraryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Book_ID" | "Book_Title" | "Author" | "Series" | "Publisher" | "ISBN_number" | "Genre" | "Language" | "Year_Published" | "Total_Copies" | "Available_Copies" | "Price", ExtArgs["result"]["library"]>
 
   export type $LibraryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Library"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      Book_ID: bigint
+      Book_ID: number
       Book_Title: string
       Author: string
       Series: string | null
@@ -1204,10 +1204,10 @@ export namespace Prisma {
       ISBN_number: bigint | null
       Genre: string | null
       Language: string | null
-      Year_Published: bigint | null
-      Total_Copies: bigint | null
-      Available_Copies: bigint | null
-      Price____: number | null
+      Year_Published: number | null
+      Total_Copies: number
+      Available_Copies: number
+      Price: number | null
     }, ExtArgs["result"]["library"]>
     composites: {}
   }
@@ -1631,7 +1631,7 @@ export namespace Prisma {
    * Fields of the Library model
    */
   interface LibraryFieldRefs {
-    readonly Book_ID: FieldRef<"Library", 'BigInt'>
+    readonly Book_ID: FieldRef<"Library", 'Int'>
     readonly Book_Title: FieldRef<"Library", 'String'>
     readonly Author: FieldRef<"Library", 'String'>
     readonly Series: FieldRef<"Library", 'String'>
@@ -1639,10 +1639,10 @@ export namespace Prisma {
     readonly ISBN_number: FieldRef<"Library", 'BigInt'>
     readonly Genre: FieldRef<"Library", 'String'>
     readonly Language: FieldRef<"Library", 'String'>
-    readonly Year_Published: FieldRef<"Library", 'BigInt'>
-    readonly Total_Copies: FieldRef<"Library", 'BigInt'>
-    readonly Available_Copies: FieldRef<"Library", 'BigInt'>
-    readonly Price____: FieldRef<"Library", 'Float'>
+    readonly Year_Published: FieldRef<"Library", 'Int'>
+    readonly Total_Copies: FieldRef<"Library", 'Int'>
+    readonly Available_Copies: FieldRef<"Library", 'Int'>
+    readonly Price: FieldRef<"Library", 'Float'>
   }
     
 
@@ -2035,7 +2035,7 @@ export namespace Prisma {
     Year_Published: 'Year_Published',
     Total_Copies: 'Total_Copies',
     Available_Copies: 'Available_Copies',
-    Price____: 'Price____'
+    Price: 'Price'
   };
 
   export type LibraryScalarFieldEnum = (typeof LibraryScalarFieldEnum)[keyof typeof LibraryScalarFieldEnum]
@@ -2071,16 +2071,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BigInt'
+   * Reference to a field of type 'Int'
    */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
 
 
   /**
-   * Reference to a field of type 'BigInt[]'
+   * Reference to a field of type 'Int[]'
    */
-  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -2099,6 +2099,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'BigInt'
+   */
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt[]'
+   */
+  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -2110,20 +2124,6 @@ export namespace Prisma {
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
-
-
-  /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
   /**
    * Deep Input Types
    */
@@ -2133,7 +2133,7 @@ export namespace Prisma {
     AND?: LibraryWhereInput | LibraryWhereInput[]
     OR?: LibraryWhereInput[]
     NOT?: LibraryWhereInput | LibraryWhereInput[]
-    Book_ID?: BigIntFilter<"Library"> | bigint | number
+    Book_ID?: IntFilter<"Library"> | number
     Book_Title?: StringFilter<"Library"> | string
     Author?: StringFilter<"Library"> | string
     Series?: StringNullableFilter<"Library"> | string | null
@@ -2141,10 +2141,10 @@ export namespace Prisma {
     ISBN_number?: BigIntNullableFilter<"Library"> | bigint | number | null
     Genre?: StringNullableFilter<"Library"> | string | null
     Language?: StringNullableFilter<"Library"> | string | null
-    Year_Published?: BigIntNullableFilter<"Library"> | bigint | number | null
-    Total_Copies?: BigIntNullableFilter<"Library"> | bigint | number | null
-    Available_Copies?: BigIntNullableFilter<"Library"> | bigint | number | null
-    Price____?: FloatNullableFilter<"Library"> | number | null
+    Year_Published?: IntNullableFilter<"Library"> | number | null
+    Total_Copies?: IntFilter<"Library"> | number
+    Available_Copies?: IntFilter<"Library"> | number
+    Price?: FloatNullableFilter<"Library"> | number | null
   }
 
   export type LibraryOrderByWithRelationInput = {
@@ -2157,28 +2157,28 @@ export namespace Prisma {
     Genre?: SortOrderInput | SortOrder
     Language?: SortOrderInput | SortOrder
     Year_Published?: SortOrderInput | SortOrder
-    Total_Copies?: SortOrderInput | SortOrder
-    Available_Copies?: SortOrderInput | SortOrder
-    Price____?: SortOrderInput | SortOrder
+    Total_Copies?: SortOrder
+    Available_Copies?: SortOrder
+    Price?: SortOrderInput | SortOrder
   }
 
   export type LibraryWhereUniqueInput = Prisma.AtLeast<{
-    Book_ID?: bigint | number
+    Book_ID?: number
     Book_Title?: string
+    ISBN_number?: bigint | number
     AND?: LibraryWhereInput | LibraryWhereInput[]
     OR?: LibraryWhereInput[]
     NOT?: LibraryWhereInput | LibraryWhereInput[]
     Author?: StringFilter<"Library"> | string
     Series?: StringNullableFilter<"Library"> | string | null
     Publisher?: StringNullableFilter<"Library"> | string | null
-    ISBN_number?: BigIntNullableFilter<"Library"> | bigint | number | null
     Genre?: StringNullableFilter<"Library"> | string | null
     Language?: StringNullableFilter<"Library"> | string | null
-    Year_Published?: BigIntNullableFilter<"Library"> | bigint | number | null
-    Total_Copies?: BigIntNullableFilter<"Library"> | bigint | number | null
-    Available_Copies?: BigIntNullableFilter<"Library"> | bigint | number | null
-    Price____?: FloatNullableFilter<"Library"> | number | null
-  }, "Book_ID" | "Book_ID" | "Book_Title">
+    Year_Published?: IntNullableFilter<"Library"> | number | null
+    Total_Copies?: IntFilter<"Library"> | number
+    Available_Copies?: IntFilter<"Library"> | number
+    Price?: FloatNullableFilter<"Library"> | number | null
+  }, "Book_ID" | "Book_ID" | "Book_Title" | "ISBN_number">
 
   export type LibraryOrderByWithAggregationInput = {
     Book_ID?: SortOrder
@@ -2190,9 +2190,9 @@ export namespace Prisma {
     Genre?: SortOrderInput | SortOrder
     Language?: SortOrderInput | SortOrder
     Year_Published?: SortOrderInput | SortOrder
-    Total_Copies?: SortOrderInput | SortOrder
-    Available_Copies?: SortOrderInput | SortOrder
-    Price____?: SortOrderInput | SortOrder
+    Total_Copies?: SortOrder
+    Available_Copies?: SortOrder
+    Price?: SortOrderInput | SortOrder
     _count?: LibraryCountOrderByAggregateInput
     _avg?: LibraryAvgOrderByAggregateInput
     _max?: LibraryMaxOrderByAggregateInput
@@ -2204,7 +2204,7 @@ export namespace Prisma {
     AND?: LibraryScalarWhereWithAggregatesInput | LibraryScalarWhereWithAggregatesInput[]
     OR?: LibraryScalarWhereWithAggregatesInput[]
     NOT?: LibraryScalarWhereWithAggregatesInput | LibraryScalarWhereWithAggregatesInput[]
-    Book_ID?: BigIntWithAggregatesFilter<"Library"> | bigint | number
+    Book_ID?: IntWithAggregatesFilter<"Library"> | number
     Book_Title?: StringWithAggregatesFilter<"Library"> | string
     Author?: StringWithAggregatesFilter<"Library"> | string
     Series?: StringNullableWithAggregatesFilter<"Library"> | string | null
@@ -2212,14 +2212,13 @@ export namespace Prisma {
     ISBN_number?: BigIntNullableWithAggregatesFilter<"Library"> | bigint | number | null
     Genre?: StringNullableWithAggregatesFilter<"Library"> | string | null
     Language?: StringNullableWithAggregatesFilter<"Library"> | string | null
-    Year_Published?: BigIntNullableWithAggregatesFilter<"Library"> | bigint | number | null
-    Total_Copies?: BigIntNullableWithAggregatesFilter<"Library"> | bigint | number | null
-    Available_Copies?: BigIntNullableWithAggregatesFilter<"Library"> | bigint | number | null
-    Price____?: FloatNullableWithAggregatesFilter<"Library"> | number | null
+    Year_Published?: IntNullableWithAggregatesFilter<"Library"> | number | null
+    Total_Copies?: IntWithAggregatesFilter<"Library"> | number
+    Available_Copies?: IntWithAggregatesFilter<"Library"> | number
+    Price?: FloatNullableWithAggregatesFilter<"Library"> | number | null
   }
 
   export type LibraryCreateInput = {
-    Book_ID?: bigint | number
     Book_Title: string
     Author: string
     Series?: string | null
@@ -2227,14 +2226,14 @@ export namespace Prisma {
     ISBN_number?: bigint | number | null
     Genre?: string | null
     Language?: string | null
-    Year_Published?: bigint | number | null
-    Total_Copies?: bigint | number | null
-    Available_Copies?: bigint | number | null
-    Price____?: number | null
+    Year_Published?: number | null
+    Total_Copies: number
+    Available_Copies: number
+    Price?: number | null
   }
 
   export type LibraryUncheckedCreateInput = {
-    Book_ID?: bigint | number
+    Book_ID?: number
     Book_Title: string
     Author: string
     Series?: string | null
@@ -2242,14 +2241,13 @@ export namespace Prisma {
     ISBN_number?: bigint | number | null
     Genre?: string | null
     Language?: string | null
-    Year_Published?: bigint | number | null
-    Total_Copies?: bigint | number | null
-    Available_Copies?: bigint | number | null
-    Price____?: number | null
+    Year_Published?: number | null
+    Total_Copies: number
+    Available_Copies: number
+    Price?: number | null
   }
 
   export type LibraryUpdateInput = {
-    Book_ID?: BigIntFieldUpdateOperationsInput | bigint | number
     Book_Title?: StringFieldUpdateOperationsInput | string
     Author?: StringFieldUpdateOperationsInput | string
     Series?: NullableStringFieldUpdateOperationsInput | string | null
@@ -2257,14 +2255,14 @@ export namespace Prisma {
     ISBN_number?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     Genre?: NullableStringFieldUpdateOperationsInput | string | null
     Language?: NullableStringFieldUpdateOperationsInput | string | null
-    Year_Published?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Total_Copies?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Available_Copies?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Price____?: NullableFloatFieldUpdateOperationsInput | number | null
+    Year_Published?: NullableIntFieldUpdateOperationsInput | number | null
+    Total_Copies?: IntFieldUpdateOperationsInput | number
+    Available_Copies?: IntFieldUpdateOperationsInput | number
+    Price?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type LibraryUncheckedUpdateInput = {
-    Book_ID?: BigIntFieldUpdateOperationsInput | bigint | number
+    Book_ID?: IntFieldUpdateOperationsInput | number
     Book_Title?: StringFieldUpdateOperationsInput | string
     Author?: StringFieldUpdateOperationsInput | string
     Series?: NullableStringFieldUpdateOperationsInput | string | null
@@ -2272,14 +2270,14 @@ export namespace Prisma {
     ISBN_number?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     Genre?: NullableStringFieldUpdateOperationsInput | string | null
     Language?: NullableStringFieldUpdateOperationsInput | string | null
-    Year_Published?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Total_Copies?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Available_Copies?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Price____?: NullableFloatFieldUpdateOperationsInput | number | null
+    Year_Published?: NullableIntFieldUpdateOperationsInput | number | null
+    Total_Copies?: IntFieldUpdateOperationsInput | number
+    Available_Copies?: IntFieldUpdateOperationsInput | number
+    Price?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type LibraryCreateManyInput = {
-    Book_ID?: bigint | number
+    Book_ID?: number
     Book_Title: string
     Author: string
     Series?: string | null
@@ -2287,14 +2285,13 @@ export namespace Prisma {
     ISBN_number?: bigint | number | null
     Genre?: string | null
     Language?: string | null
-    Year_Published?: bigint | number | null
-    Total_Copies?: bigint | number | null
-    Available_Copies?: bigint | number | null
-    Price____?: number | null
+    Year_Published?: number | null
+    Total_Copies: number
+    Available_Copies: number
+    Price?: number | null
   }
 
   export type LibraryUpdateManyMutationInput = {
-    Book_ID?: BigIntFieldUpdateOperationsInput | bigint | number
     Book_Title?: StringFieldUpdateOperationsInput | string
     Author?: StringFieldUpdateOperationsInput | string
     Series?: NullableStringFieldUpdateOperationsInput | string | null
@@ -2302,14 +2299,14 @@ export namespace Prisma {
     ISBN_number?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     Genre?: NullableStringFieldUpdateOperationsInput | string | null
     Language?: NullableStringFieldUpdateOperationsInput | string | null
-    Year_Published?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Total_Copies?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Available_Copies?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Price____?: NullableFloatFieldUpdateOperationsInput | number | null
+    Year_Published?: NullableIntFieldUpdateOperationsInput | number | null
+    Total_Copies?: IntFieldUpdateOperationsInput | number
+    Available_Copies?: IntFieldUpdateOperationsInput | number
+    Price?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type LibraryUncheckedUpdateManyInput = {
-    Book_ID?: BigIntFieldUpdateOperationsInput | bigint | number
+    Book_ID?: IntFieldUpdateOperationsInput | number
     Book_Title?: StringFieldUpdateOperationsInput | string
     Author?: StringFieldUpdateOperationsInput | string
     Series?: NullableStringFieldUpdateOperationsInput | string | null
@@ -2317,21 +2314,21 @@ export namespace Prisma {
     ISBN_number?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     Genre?: NullableStringFieldUpdateOperationsInput | string | null
     Language?: NullableStringFieldUpdateOperationsInput | string | null
-    Year_Published?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Total_Copies?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Available_Copies?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    Price____?: NullableFloatFieldUpdateOperationsInput | number | null
+    Year_Published?: NullableIntFieldUpdateOperationsInput | number | null
+    Total_Copies?: IntFieldUpdateOperationsInput | number
+    Available_Copies?: IntFieldUpdateOperationsInput | number
+    Price?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
-  export type BigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -2375,6 +2372,17 @@ export namespace Prisma {
     not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type FloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -2403,7 +2411,7 @@ export namespace Prisma {
     Year_Published?: SortOrder
     Total_Copies?: SortOrder
     Available_Copies?: SortOrder
-    Price____?: SortOrder
+    Price?: SortOrder
   }
 
   export type LibraryAvgOrderByAggregateInput = {
@@ -2412,7 +2420,7 @@ export namespace Prisma {
     Year_Published?: SortOrder
     Total_Copies?: SortOrder
     Available_Copies?: SortOrder
-    Price____?: SortOrder
+    Price?: SortOrder
   }
 
   export type LibraryMaxOrderByAggregateInput = {
@@ -2427,7 +2435,7 @@ export namespace Prisma {
     Year_Published?: SortOrder
     Total_Copies?: SortOrder
     Available_Copies?: SortOrder
-    Price____?: SortOrder
+    Price?: SortOrder
   }
 
   export type LibraryMinOrderByAggregateInput = {
@@ -2442,7 +2450,7 @@ export namespace Prisma {
     Year_Published?: SortOrder
     Total_Copies?: SortOrder
     Available_Copies?: SortOrder
-    Price____?: SortOrder
+    Price?: SortOrder
   }
 
   export type LibrarySumOrderByAggregateInput = {
@@ -2451,23 +2459,23 @@ export namespace Prisma {
     Year_Published?: SortOrder
     Total_Copies?: SortOrder
     Available_Copies?: SortOrder
-    Price____?: SortOrder
+    Price?: SortOrder
   }
 
-  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
     _count?: NestedIntFilter<$PrismaModel>
     _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -2522,6 +2530,22 @@ export namespace Prisma {
     _max?: NestedBigIntNullableFilter<$PrismaModel>
   }
 
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
   export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -2536,14 +2560,6 @@ export namespace Prisma {
     _sum?: NestedFloatNullableFilter<$PrismaModel>
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
-  }
-
-  export type BigIntFieldUpdateOperationsInput = {
-    set?: bigint | number
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -2562,6 +2578,22 @@ export namespace Prisma {
     divide?: bigint | number
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type NullableFloatFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -2570,15 +2602,15 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type NestedBigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -2620,6 +2652,17 @@ export namespace Prisma {
     not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -2631,23 +2674,7 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
-  }
-
-  export type NestedIntFilter<$PrismaModel = never> = {
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -2655,7 +2682,12 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -2703,17 +2735,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
@@ -2728,6 +2749,22 @@ export namespace Prisma {
     _sum?: NestedBigIntNullableFilter<$PrismaModel>
     _min?: NestedBigIntNullableFilter<$PrismaModel>
     _max?: NestedBigIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
