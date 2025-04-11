@@ -15,12 +15,12 @@ datasource db {
 model Library {
   Book_ID          BigInt  @id @unique @default(autoincrement()) @map("Book ID")
   Book_Title       String  @map("Book Title")
-  Author           String
-  Series           String?
-  Publisher        String?
+  Author           String  @map("Author")
+  Series           String? @map("Series")
+  Publisher        String? @map("Publisher")
   ISBN_number      BigInt? @map("ISBN number")
-  Genre            String?
-  Language         String?
+  Genre            String? @map("Genre")
+  Language         String? @map("Language")
   Year_Published   BigInt? @map("Year Published")
   Total_Copies     BigInt? @map("Total Copies")
   Available_Copies BigInt? @map("Available Copies")
