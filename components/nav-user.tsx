@@ -56,10 +56,10 @@ export function NavUser({
                     </span>
                 </div>
                 <div
-                className="px-4 py-[1rem] rounded-lg bg-zinc-900"
+                className="px-4 py-[1rem] rounded-lg bg-zinc-50 dark:bg-zinc-900"
                 onClick={handleClick}
                 >
-                    <IconLogout className="ml-auto size-4" />
+                    <IconLogout className="ml-auto size-4 " />
                 </div>
 
                 </SidebarMenuButton>
