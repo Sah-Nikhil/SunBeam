@@ -16,8 +16,8 @@ datasource db {
 }
 
 model Library {
-    Book_ID          Int  @id @unique @default(autoincrement()) @map("Book ID")
-    Book_Title       String  @unique @map("Book Title")
+    Book_ID          Int  @id @default(autoincrement()) @map("Book ID")
+    Book_Title       String  @map("Book Title")
     Author           String  @map("Author")
     Series           String? @map("Series")
     Publisher        String? @map("Publisher")
