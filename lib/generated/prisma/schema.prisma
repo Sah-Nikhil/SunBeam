@@ -21,7 +21,7 @@ model Library {
   Author           String  @map("Author")
   Series           String? @map("Series")
   Publisher        String? @map("Publisher")
-  ISBN_number      BigInt? @unique @map("ISBN number")
+  // ISBN_number      BigInt? @unique @map("ISBN number")
   Genre            String? @map("Genre")
   Language         String? @map("Language")
   Year_Published   Int?    @map("Year Published")
