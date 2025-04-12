@@ -10,6 +10,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { BookFormModal } from '@/components/modals/BookFormModal'
 
 interface NavMainProps {
     items: {
@@ -33,6 +34,7 @@ export function NavMain({ items }: NavMainProps) {
             <SidebarMenuItem className="flex items-center gap-2">
             </SidebarMenuItem>
             </SidebarMenu>
+            <BookFormModal>
                 <SidebarMenuButton
                         tooltip="Quick Create"
                         className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
@@ -40,6 +42,7 @@ export function NavMain({ items }: NavMainProps) {
                         <IconCirclePlusFilled />
                         <span>Quick Create</span>
                 </SidebarMenuButton>
+            </BookFormModal>
             <SidebarMenu>
             {items.map((item) => (
                 <SidebarMenuItem key={item.title} onClick={() => handleNavigation(item.url)}>
