@@ -56,7 +56,7 @@ export default async function RootLayout({
             <ActiveThemeProvider initialTheme={activeThemeValue}>
                 {children}
             </ActiveThemeProvider>
-            </ThemeProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
