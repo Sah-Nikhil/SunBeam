@@ -2,6 +2,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { createClient } from '@/utils/supabase/client'
 import { type User } from '@supabase/supabase-js'
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 // ...
 
@@ -34,7 +39,7 @@ export default function AccountForm({ user }: { user: User | null }) {
         setWebsite(data.website)
         setAvatarUrl(data.avatar_url)
       }
-    } catch (error) {
+    } catch {
       alert('Error loading user data!')
     } finally {
       setLoading(false)
@@ -68,7 +73,7 @@ export default function AccountForm({ user }: { user: User | null }) {
       })
       if (error) throw error
       alert('Profile updated!')
-    } catch (error) {
+    } catch {
       alert('Error updating the data!')
     } finally {
       setLoading(false)
@@ -76,59 +81,65 @@ export default function AccountForm({ user }: { user: User | null }) {
   }
 
   return (
-    <div className="form-widget">
+    <Card className="w-full max-w-sm">
+      <CardHeader>
+        <CardTitle>Account Settings</CardTitle>
+        <CardDescription>Manage your account settings here.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="grid gap-4">
+          <div className="flex items-center justify-center">
+            <Avatar>
+              <AvatarImage src={avatar_url || undefined} alt="Avatar" />
+              <AvatarFallback>{fullname?.charAt(0)}</AvatarFallback>
+            </Avatar>
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="email">Email</Label>
+            <Input id="email" type="text" value={user?.email} disabled />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="fullName">Full Name</Label>
+            <Input
+              id="fullName"
+              type="text"
+              value={fullname || ''}
+              onChange={(e) => setFullname(e.target.value)}
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="username">Username</Label>
+            <Input
+              id="username"
+              type="text"
+              value={username || ''}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="website">Website</Label>
+            <Input
+              id="website"
+              type="url"
+              value={website || ''}
+              onChange={(e) => setWebsite(e.target.value)}
+            />
+          </div>
 
-      {/* ... */}
+          <Button
+            onClick={() => updateProfile({ fullname, username, website, avatar_url })}
+            disabled={loading}
+          >
+            {loading ? 'Loading ...' : 'Update'}
+          </Button>
 
-      <div>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={user?.email} disabled />
-      </div>
-      <div>
-        <label htmlFor="fullName">Full Name</label>
-        <input
-          id="fullName"
-          type="text"
-          value={fullname || ''}
-          onChange={(e) => setFullname(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          type="text"
-          value={username || ''}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="website">Website</label>
-        <input
-          id="website"
-          type="url"
-          value={website || ''}
-          onChange={(e) => setWebsite(e.target.value)}
-        />
-      </div>
-
-      <div>
-        <button
-          className="button primary block"
-          onClick={() => updateProfile({ fullname, username, website, avatar_url })}
-          disabled={loading}
-        >
-          {loading ? 'Loading ...' : 'Update'}
-        </button>
-      </div>
-
-      <div>
-        <form action="/auth/signout" method="post">
-          <button className="button block" type="submit">
-            Sign out
-          </button>
-        </form>
-      </div>
-    </div>
+          <form action="/auth/signout" method="post">
+            <Button variant="destructive" type="submit">
+              Sign out
+            </Button>
+          </form>
+        </div>
+      </CardContent>
+    </Card>
   )
 }
