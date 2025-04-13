@@ -39,7 +39,7 @@ const data = {
     navSecondary: [
         {
             title: "Settings",
-            url: "/profile",
+            url: "/account",
             icon: IconSettings,
         },
     ],

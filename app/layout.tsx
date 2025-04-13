@@ -37,25 +37,29 @@ export default async function RootLayout({
     const isScaled = activeThemeValue?.endsWith("-scaled")
 
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={cn(
+        activeThemeValue ? `theme-${activeThemeValue}` : "",
+        isScaled ? "theme-scaled" : ""
+      )}
+    >
       <body
         className={cn(
-            "bg-background overscroll-none font-sans antialiased",
-            activeThemeValue ? `theme-${activeThemeValue}` : "",
-            isScaled ? "theme-scaled" : "",
-            // fontVariables
+          "bg-background overscroll-none font-sans antialiased",
+          // fontVariables
         )}
       >
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-            enableColorScheme
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          enableColorScheme
         >
-            <ActiveThemeProvider initialTheme={activeThemeValue}>
-                {children}
-            </ActiveThemeProvider>
+          <ActiveThemeProvider initialTheme={activeThemeValue}>
+            {children}
+          </ActiveThemeProvider>
         </ThemeProvider>
       </body>
     </html>

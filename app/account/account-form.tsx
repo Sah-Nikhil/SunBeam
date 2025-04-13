@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-// ...
+
 
 export default function AccountForm({ user }: { user: User | null }) {
   const supabase = createClient()
