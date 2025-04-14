@@ -1,9 +1,5 @@
-import React from 'react'
+'use client'
 
-const ErrorPage = () => {
-  return (
-    <p>Sorry, something went wrong</p>
-  )
+export default function ErrorPage() {
+  return <p>Sorry, something went wrong</p>
 }
-
-export default ErrorPage

@@ -1,4 +1,3 @@
-// filepath: c:\Programming\SELF\RedStore\sunbeam\components\library-table.tsx
 "use client"
 
 import * as React from "react"

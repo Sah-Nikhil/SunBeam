@@ -57,6 +57,19 @@ export const columns: ColumnDef<Book>[] = [
     cell: ({ row }) => <div>{row.getValue("Author")}</div>,
   },
   {
+    accessorKey: "Series",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Series
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => <div>{row.getValue("Series") || "N/A"}</div>,
+  },
+  {
     accessorKey: "Genre",
     header: ({ column }) => (
       <Button
@@ -129,10 +142,10 @@ export const columns: ColumnDef<Book>[] = [
             >
               Copy Book ID
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
+            {/* <DropdownMenuSeparator />
             <DropdownMenuItem>View details</DropdownMenuItem>
             <DropdownMenuItem>Edit book</DropdownMenuItem>
-            <DropdownMenuItem className="text-red-600">Delete book</DropdownMenuItem>
+            <DropdownMenuItem className="text-red-600">Delete book</DropdownMenuItem> */}
           </DropdownMenuContent>
         </DropdownMenu>
       )
