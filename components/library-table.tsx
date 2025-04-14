@@ -46,7 +46,13 @@ export function LibraryTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = React.useState({})
-  const [pageSize, setPageSize] = React.useState(10) // Default page size
+  const [pageSize, setPageSize] = React.useState(10)
+  const [pageIndex, setPageIndex] = React.useState(0)
+
+  // Reset page index when page size changes
+  React.useEffect(() => {
+    setPageIndex(0)
+  }, [pageSize])
 
   const table = useReactTable({
     data,
@@ -64,12 +70,20 @@ export function LibraryTable<TData, TValue>({
       columnFilters,
       columnVisibility,
       rowSelection,
+      pagination: { pageIndex, pageSize },
     },
-    initialState: {
-      pagination: {
-        pageSize,
-      },
+    onPaginationChange: (updater) => {
+      if (typeof updater === 'function') {
+        const next = updater({ pageIndex, pageSize })
+        setPageIndex(next.pageIndex)
+        setPageSize(next.pageSize)
+      } else if (updater) {
+        setPageIndex(updater.pageIndex)
+        setPageSize(updater.pageSize)
+      }
     },
+    manualPagination: false,
+    pageCount: Math.ceil(data.length / pageSize),
   })
 
   return (
