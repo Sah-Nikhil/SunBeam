@@ -39,6 +39,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning={true}
       className={cn(
         activeThemeValue ? `theme-${activeThemeValue}` : "",
         isScaled ? "theme-scaled" : ""
