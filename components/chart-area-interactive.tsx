@@ -32,7 +32,14 @@ import {
 
 export const description = "An interactive area chart"
 
-const chartData = []
+// Define the type for chartData
+interface ChartData {
+  date: string;
+  mobile: number;
+  desktop: number;
+}
+
+const chartData: ChartData[] = []
 
 const chartConfig = {
   visitors: {

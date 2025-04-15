@@ -106,7 +106,7 @@ export const columns: ColumnDef<Book>[] = [
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
-    cell: ({ row }) => <div className="text-center">{row.getValue("Available_Copies")}</div>,
+    cell: ({ row }) => <div className="text-center">{row.getValue("Available_Copies") || "N/A"}</div>,
   },
   {
     accessorKey: "Total_Copies",
@@ -119,36 +119,33 @@ export const columns: ColumnDef<Book>[] = [
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
-    cell: ({ row }) => <div className="text-center">{row.getValue("Total_Copies")}</div>,
+    cell: ({ row }) => <div>{row.getValue("Total_Copies") || "N/A"}</div>,
   },
   {
     id: "actions",
     enableHiding: false,
-    cell: ({ row }) => {
-      const book = row.original
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(book.Book_ID.toString())}
-            >
-              Copy Book ID
-            </DropdownMenuItem>
-            {/* <DropdownMenuSeparator />
-            <DropdownMenuItem>View details</DropdownMenuItem>
-            <DropdownMenuItem>Edit book</DropdownMenuItem>
-            <DropdownMenuItem className="text-red-600">Delete book</DropdownMenuItem> */}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      )
-    },
+    cell: ({ row }) => (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="h-8 w-8 p-0">
+            <span className="sr-only">Open menu</span>
+            <MoreHorizontal className="h-4 w-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onClick={() => alert(`View details for ${row.original.Book_Title}`)}>
+            View Details
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => alert(`Edit ${row.original.Book_Title}`)}>
+            Edit
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => alert(`Delete ${row.original.Book_Title}`)}>
+            Delete
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    ),
   },
 ]

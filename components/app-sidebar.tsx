@@ -2,51 +2,65 @@
 
 import * as React from "react"
 
-import { useRouter } from 'next/navigation'
-
-import { IconDashboard, IconFolder, IconInnerShadowTop, IconListDetails, IconSettings } from "@tabler/icons-react"
+import { IconDashboard, IconFolder, IconInnerShadowTop, IconListDetails, IconSettings, IconProps } from "@tabler/icons-react"
 
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 
-const data = {
-    user: {
+// Define types for navigation items and user
+interface NavItem {
+  title: string;
+  url: string;
+  icon: React.FunctionComponent<IconProps>;
+}
+
+interface User {
+  name: string;
+  email: string;
+  avatar: string;
+}
+
+const data: {
+  user: User;
+  navMain: NavItem[];
+  navSecondary: NavItem[];
+} = {
+  user: {
     name: "V3SPER",
     email: "win@goat.com",
     avatar: "/avatars/shadcn.jpg",
+  },
+
+  navMain: [
+    {
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: IconDashboard,
     },
+    {
+      title: "Library",
+      url: "/library",
+      icon: IconFolder,
+    },
+    {
+      title: "Manage",
+      url: "/manage",
+      icon: IconListDetails,
+    },
+  ],
 
-    navMain: [
-        {
-            title: "Dashboard",
-            url: "/dashboard",
-            icon: IconDashboard,
-        },
-        {
-            title: "Library",
-            url: "/library",
-            icon: IconFolder,
-        },
-        {
-            title: "Manage",
-            url: "/manage",
-            icon: IconListDetails,
-        },
-    ],
-
-    navSecondary: [
-        {
-            title: "Settings",
-            url: "/account",
-            icon: IconSettings,
-        },
-    ],
+  navSecondary: [
+    {
+      title: "Settings",
+      url: "/account",
+      icon: IconSettings,
+    },
+  ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-    const router = useRouter()
     return (
         <Sidebar collapsible="offcanvas" {...props}>
         <SidebarHeader>
@@ -65,7 +79,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenu>
         </SidebarHeader>
         <SidebarContent>
-            <NavMain items={data.navMain} router={router} />
+            <NavMain items={data.navMain} />
             <NavSecondary items={data.navSecondary} className="mt-auto" />
         </SidebarContent>
         <SidebarFooter>

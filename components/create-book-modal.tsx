@@ -16,28 +16,45 @@ interface CreateBookModalProps {
     onBookCreated?: () => void; // Optional callback after successful creation
 }
 
+// Update the BookFormData type to match the Prisma schema
+interface BookFormData {
+    Book_Title: string;
+    Author: string;
+    Series?: string;
+    Publisher?: string;
+    Genre?: string;
+    Language?: string;
+    Year_Published?: number; // Changed to match Int?
+    Total_Copies: number; // Changed to match Int
+    Available_Copies: number; // Changed to match Int
+    Price?: number; // Changed to match Float?
+}
+
+// Update the initialFormData to match the updated type
+const initialFormData: BookFormData = {
+    Book_Title: '',
+    Author: '',
+    Series: undefined,
+    Publisher: undefined,
+    Genre: undefined,
+    Language: undefined,
+    Year_Published: undefined,
+    Total_Copies: 1,
+    Available_Copies: 1,
+    Price: undefined,
+};
+
 export function CreateBookModal({ onBookCreated }: CreateBookModalProps) {
     const [isOpen, setIsOpen] = useState(false);
-    const initialFormData = {
-        Book_Title: '',
-        Author: '',
-        Series: '',
-        Publisher: '',
-        Genre: '',
-        Language: '',
-        Year_Published: '',
-        Total_Copies: '1',
-        Available_Copies: '1',
-        Price: '',
-    };
-    const [formData, setFormData] = useState(initialFormData);
+    const [formData, setFormData] = useState<BookFormData>(initialFormData);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Add explicit types for the event handlers
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (): Promise<void> => {
         try {
             await createBook(formData);
             toast.success("Book created successfully!")

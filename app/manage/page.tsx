@@ -16,6 +16,7 @@ import { Book } from "@/components/library-columns"
 import { fetchBooks } from "@/lib/axios-helpers"
 import { Skeleton } from "@/components/ui/skeleton" // For loading state
 import { toast } from "sonner"
+import axios from "axios"
 
 const ITEMS_PER_PAGE = 12; // Number of cards per page
 
@@ -44,9 +45,12 @@ export default function ManagePage() {
         const data = await fetchBooks()
         setAllBooks(data)
         setFilteredBooks(data) // Initially show all books
-      } catch (err: any) {
-        console.error("Failed to fetch books:", err)
-        setError("Failed to load library data. Please try again later.")
+      } catch (err: unknown) {
+        if (axios.isAxiosError(err)) {
+          setError(err.response?.data?.message || err.message);
+        } else {
+          setError('Unknown error');
+        }
         toast.error("Failed to load library data.")
       } finally {
         setIsLoading(false)
@@ -57,8 +61,10 @@ export default function ManagePage() {
 
   // Memoized filter options
   const authors = useMemo(() => ["all", ...new Set(allBooks.map(b => b.Author).filter(Boolean))], [allBooks])
-  const genres = useMemo(() => ["all", ...new Set(allBooks.map(b => b.Genre).filter(Boolean))], [allBooks])
-  const series = useMemo(() => ["all", ...new Set(allBooks.map(b => b.Series).filter(Boolean))], [allBooks])
+  // Filter out null values from genres
+  const genres = useMemo(() => ["all", ...new Set(allBooks.map(b => b.Genre).filter((genre): genre is string => Boolean(genre)))], [allBooks])
+  // Filter out null values from series
+  const series = useMemo(() => ["all", ...new Set(allBooks.map(b => b.Series).filter((series): series is string => Boolean(series)))], [allBooks])
 
   // Apply filters and search whenever dependencies change
   useEffect(() => {
