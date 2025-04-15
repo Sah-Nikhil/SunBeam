@@ -93,6 +93,7 @@ export async function POST(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   try {
     const body = await req.json();
+    console.log('Incoming PUT request payload:', body);
     const { Book_ID, ...rest } = body;
 
     if (!Book_ID) {
