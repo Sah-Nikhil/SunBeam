@@ -32,9 +32,18 @@ export function NavUser({
     const { isMobile } = useSidebar()
     const router = useRouter()
 
-    const handleClick = () => {
-        router.push('/login') // Navigate to login page
-    }
+    const handleClick = async () => {
+        try {
+            const response = await fetch('/auth/signout', {
+                method: 'POST',
+            });
+            if (response.redirected) {
+                window.location.href = response.url; // Redirect to the login page
+            }
+        } catch (error) {
+            console.error('Error during signout:', error);
+        }
+    };
 
     return (
         <SidebarMenu>
