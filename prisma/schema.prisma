@@ -21,5 +21,5 @@ model Library {
   Year_Published   Int?    @map("Year Published")
   Total_Copies     Int     @map("Total Copies")
   Available_Copies Int     @map("Available Copies")
-  Price            Float?  @map("Price (USD)")
+  Price            Float?  @map("Price (USD)")j
 }
